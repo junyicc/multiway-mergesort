@@ -16,7 +16,7 @@ import (
 
 var src = rand.NewSource(time.Now().UnixNano())
 
-func GenRandomFile(fpath string, size int) error {
+func RandomFile(fpath string, size int) error {
 	fdir := filepath.Dir(fpath)
 	if !file.Exists(fdir) {
 		if err := os.MkdirAll(fdir, os.ModePerm); err != nil {
@@ -41,6 +41,18 @@ func GenRandomFile(fpath string, size int) error {
 		}
 	}
 	return w.Flush()
+}
+
+func RandomRecords(size int) model.Records {
+	if size < 1 {
+		return nil
+	}
+	records := make(model.Records, 0, size)
+	for i := 0; i < size; i++ {
+		record := genRandomRecord()
+		records = append(records, record)
+	}
+	return records
 }
 
 func genRandomRecord() model.Record {

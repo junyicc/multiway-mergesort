@@ -1,4 +1,4 @@
-package main
+package fromfile
 
 import (
 	"bufio"
@@ -22,13 +22,13 @@ const (
 
 var BlockSize = MaxRecordSize / Partitions
 
-func MultiMergeSortInFile() {
+func MultiMergeSortFromFile() {
 	// generate random records in one file
 	fpath := `/home/junyi/workspace/data/multiway-mergesort/source.txt`
 	outpath := `/home/junyi/workspace/data/multiway-mergesort/result.txt`
 
 	genStartTime := time.Now()
-	err := gen.GenRandomFile(fpath, MaxRecordSize)
+	err := gen.RandomFile(fpath, MaxRecordSize)
 	if err != nil {
 		log.Panicf("failed to generate source file, err: %v\n", err)
 	}
