@@ -62,6 +62,7 @@ func phase1(fpath string) ([]string, error) {
 		log.Println("failed to open records file in phase 1")
 		return nil, err
 	}
+	defer f.Close()
 	// read file with block size
 	scanner := bufio.NewScanner(f)
 	sortedFiles := make([]string, 0, Partitions)
