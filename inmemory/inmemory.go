@@ -24,7 +24,7 @@ func MultiMergeSortInMemory() {
 	// generate random records
 	records := gen.RandomRecords(MaxRecordSize)
 
-	// phase1 separated records into pieces
+	// phase1 splits records into pieces
 	chans := phase1(records)
 
 	res := phase2(chans)

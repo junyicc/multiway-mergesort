@@ -53,7 +53,7 @@ func MultiMergeSortFromFile() {
 	log.Printf("successfully sorted big file: %s -> %s\n", fpath, outpath)
 }
 
-// phase1 separates one unsorted big file into several sorted pieces
+// phase1 splits one unsorted big file into several sorted pieces
 // and return sorted file path
 func phase1(fpath string) ([]string, error) {
 	// open file
