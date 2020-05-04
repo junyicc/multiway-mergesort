@@ -127,6 +127,9 @@ type sortedInput struct {
 }
 
 func phase2(sortedFiles []string, outpath string) error {
+	if len(sortedFiles) < 1 {
+		return fmt.Errorf("empty sorted files")
+	}
 	// create output file
 	outF, err := os.Create(outpath)
 	if err != nil {
